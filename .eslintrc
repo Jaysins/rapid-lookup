@@ -1,0 +1,29 @@
+{
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "standard",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 13,
+    "sourceType": "module",
+    "project": true
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "no-var": "error",
+    "no-multi-spaces": "error",
+    "space-in-parens": "error",
+    "no-multiple-empty-lines": "error",
+    "prefer-const": "error",
+    "space-before-function-paren": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "curly": "error"
+  }
+}
