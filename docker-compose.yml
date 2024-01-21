@@ -30,10 +30,8 @@ services:
     links:
       - "backend-app:backend"
     environment:
-      REST_API_URL: http://backend-app:3000
+      REST_API_URL: http://backend:3000
     depends_on:
       - backend-app
-
-
 volumes:
   mongodb:
