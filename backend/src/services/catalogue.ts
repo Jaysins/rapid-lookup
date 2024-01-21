@@ -58,6 +58,7 @@ export const loadCatalogues = async (countryId: string, startDate?: Date | null)
   }
   const responseData = response.data;
 
+  console.log(responseData)
   const existingCatalogHashes = await CatalogueModel.find({ country: countryId }).distinct('hash');
 
   const cataloguesToInsert: ICatalogue[] = responseData

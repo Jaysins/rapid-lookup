@@ -34,7 +34,7 @@ export const loadCountries = async (continent: string): Promise<Record<string, a
     .map((countryData: IGeographyResponseData) => ({
       name: countryData.name.common,
       code: countryData.cca2,
-      currencies: countryData.currencies ? countryData.currencies.map((currency: any) => ({
+      currencies: countryData.currencies ? countryData.currencies.map((currency: Record<string, any>) => ({
         name: currency.name,
         alphaCode: currency.alphaCode,
         symbol: currency.symbol,
@@ -51,6 +51,7 @@ export const loadCountries = async (continent: string): Promise<Record<string, a
       mapUrl: countryData.maps ? countryData.maps.googleMaps : null,
       timezones: countryData.timezones || null,
     }));
+
   if (countriesToInsert.length > 0) {
     await CountryModel.insertMany(countriesToInsert);
   }

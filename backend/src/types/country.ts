@@ -2,7 +2,7 @@ export interface ICountry {
   name: string;
   code: string;
   continent: string;
-  currencies?: { name: string; alphaCode: string; symbol: string }[] | null;
+  currencies?: { name: string; alphaCode: string; symbol?: string }[] | null;
   capital?: string | null;
   subRegion?: string | null;
   languages?: { code: string; name: string }[] | null;

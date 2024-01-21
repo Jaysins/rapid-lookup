@@ -4,19 +4,17 @@ services:
   mongodb:
     image: mongo:latest
     restart: unless-stopped
-    env_file: ./.env
     ports:
       - "27018:27017"
     volumes:
       - mongodb:/data/db
 
-  app:
-    build:
-      context: .
+  backend-app:
+    build: backend
     ports:
       - "3000:3000"
     env_file:
-      - .env
+      - backend/.env
     environment:
       DATABASE_URL: mongodb://rapid-lookup-mongodb-1:27017/basal
     volumes:
@@ -24,6 +22,17 @@ services:
 
     depends_on:
       - mongodb
+
+  frontend-app:
+    build: frontend
+    ports:
+      - "5173:5173"
+    links:
+      - "backend-app:backend"
+    environment:
+      REST_API_URL: http://backend-app:3000
+    depends_on:
+      - backend-app
 
 
 volumes:

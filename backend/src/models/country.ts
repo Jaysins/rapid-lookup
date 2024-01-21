@@ -10,7 +10,7 @@ const countrySchema = new Schema<ICountryModel>({
   currencies: [{
     name: { type: String, required: true },
     alphaCode: { type: String, required: true },
-    symbol: { type: String, required: true },
+    symbol: { type: String, required: false },
   }],
   capital: { type: String, required: false },
   subRegion: { type: String, required: false },
